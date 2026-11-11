@@ -20,3 +20,11 @@ Toutes les discussions se font dans le canal Mattermost dédié au projet.
 L'ensemble des tâches du projet sont définies sur Github directement. Vous pouvez vous assigner librement les tickets et ouvrir une ou des PRs en les liant au ticket.
 
 La priorisation des tickets se fait lors des Weekly ou des discussions textuelles sur Mattermost.
+
+### Workflow git
+
+Le dev se fait sur des branches dédiées à l'issue, les commits directement sur main doivent être evités.
+
+Une fois le dev terminé, vous pouvez ouvrir une ou plusieurs PR et assigner directement des membres du projet en reviewer.
+
+Une fois la PR validée par au moins une personne, vous pourrez la merger sur main.
