@@ -8,6 +8,12 @@ Une fois installé, il suffit de lancer la commande suivante pour installer la v
 uv sync
 ```
 
+## Lancer le backend
+
+```bash
+uv run fastapi dev
+```
+
 A l'usage, si vous utilisez VSCode, l'environnement virtuel sera automatiquement activé lorsque vous ouvrirez le projet. Sinon, il suffit de l'activer manuellement avec la commande suivante :
 
 ```bash
