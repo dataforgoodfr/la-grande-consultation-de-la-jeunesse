@@ -1,0 +1,15 @@
+[tox]
+env_list = ["py314", "lint"]
+isolated_build = true
+
+[env_run_base]
+deps = ["pytest"]
+commands = [["pytest"]]
+
+[env.lint]
+skip_install = true
+deps = ["ruff"]
+commands = [
+    ["ruff", "check", "."],
+    ["ruff", "format", "--check", "."]
+]
