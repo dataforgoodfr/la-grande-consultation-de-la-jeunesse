@@ -1,42 +1,22 @@
-# Template DataForGood
+# La Grande Consultation de la Jeunesse
 
-This file will become your README and also the index of your
-documentation.
+Bienvenue dans le dépôt du projet de la saison 15 La Grande Consultation de la Jeunesse.
+Ici vous trouverez le code du backend et du frontend, ainsi que l'ensemble des liens utiles pour contribuer au développement du projet.
 
-# Contributing
+## Liens utiles
 
+- Architecture générale: [Ici](https://outline.services.dataforgood.fr/doc/architecture-technique-eRTCoAWsgq)
+- Swagger (contrat front/back): [Ici](https://outline.services.dataforgood.fr/doc/swagger-backend-YD7ct10oxA)
+- Maquettes: Épinglées dans le [canal Mattermost](https://mattermost.services.dataforgood.fr/data-for-good/channels/15-la-grande-consultation-de-la-jeunesse-admin)
+- Onboarding Front: [Ici](./frontend/ONBOARDING.md)
+- Onboarding Back: [Ici](./backend/ONBOARDING.md)
 
-## Installation
+## Organisation du projet
 
-- [Installation de Python](#installation-de-python)
+Toutes les discussions se font dans le canal Mattermost dédié au projet.
 
-Ce projet utilise [uv](https://docs.astral.sh/uv/) pour la gestion des dépendances Python. Il est préréquis pour l'installation de ce projet.
+### Workflow des tickets
 
-Une fois installé, il suffit de lancer la commande suivante pour installer la version de Python adéquate, créer un environnement virtuel et installer les dépendances du projet.
+L'ensemble des tâches du projet sont définies sur Github directement. Vous pouvez vous assigner librement les tickets et ouvrir une ou des PRs en les liant au ticket.
 
-```bash
-uv sync
-```
-
-A l'usage, si vous utilisez VSCode, l'environnement virtuel sera automatiquement activé lorsque vous ouvrirez le projet. Sinon, il suffit de l'activer manuellement avec la commande suivante :
-
-```bash
-source .venv/bin/activate
-```
-
-Ou alors, utilisez la commande `uv run ...` (au lieu de `python ...`) pour lancer un script Python. Par exemple:
-
-```bash
-uv run pipelines/run.py run build_database
-```
-
-
-## Lancer les precommit-hook localement
-
-[Installer les precommit](https://pre-commit.com/)
-
-    pre-commit run --all-files
-
-## Utiliser Tox pour tester votre code
-
-    tox -vv
+La priorisation des tickets se fait lors des Weekly ou des discussions textuelles sur Mattermost.
