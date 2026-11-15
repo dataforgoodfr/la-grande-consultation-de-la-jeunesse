@@ -2,7 +2,7 @@
 
 Ce projet utilise [uv](https://docs.astral.sh/uv/) pour la gestion des dépendances Python. Il est préréquis pour l'installation de ce projet.
 
-Une fois installé, il suffit de lancer la commande suivante pour installer la version de Python adéquate, créer un environnement virtuel et installer les dépendances du projet.
+Une fois installé, il suffit de lancer la commande suivante dans ce dossier pour installer la version de Python adéquate, créer un environnement virtuel et installer les dépendances du projet.
 
 ```bash
 uv sync
