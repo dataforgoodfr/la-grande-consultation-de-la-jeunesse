@@ -1,0 +1,25 @@
+# Données personnelles (réponses de mineur·es) : jamais versionnées
+data/
+resultats/
+*.xlsx
+*.csv
+# ... sauf le modèle de marges (vide, sans donnée personnelle)
+!modeles/*.xlsx
+# ... et les définitions de questionnaires (vierges)
+!conceptions/*.xlsx
+
+# Environnements Python locaux, quel que soit l'outil choisi
+.venv/
+venv/
+env/
+
+# Caches
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Système
+.DS_Store
+Thumbs.db
