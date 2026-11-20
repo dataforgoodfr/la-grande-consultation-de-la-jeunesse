@@ -23,6 +23,8 @@ La priorisation des tickets se fait lors des Weekly ou des discussions textuelle
 
 ### Workflow git
 
+Vous trouverez plus d'informations [ici](./WORKFLOW-GIT.md) concernant le workflow git.
+
 Le dev se fait sur des branches dédiées à l'issue, les commits directement sur main doivent être evités.
 
 Une fois le dev terminé, vous pouvez ouvrir une ou plusieurs PR et assigner directement des membres du projet en reviewer.
