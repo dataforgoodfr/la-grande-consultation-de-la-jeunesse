@@ -33,4 +33,4 @@ Vérifiez bien que vous êtes sur la bonne branche et que tout votre travail est
 git push --force
 ```
 
-:warning: Attentation si vous travaillez à plusieurs sur la même branche (ce qui est déconseillé), assurez-vous de ne pas écraser le travail des autres.
+:warning: Attention si vous travaillez à plusieurs sur la même branche (ce qui est déconseillé), assurez-vous de ne pas écraser le travail des autres.
