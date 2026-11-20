@@ -23,7 +23,7 @@ La priorisation des tickets se fait lors des Weekly ou des discussions textuelle
 
 ### Workflow git
 
-Vous trouverez plus d'informations [ici](./WORKFLOW-GIT.md) concernant le workflow git.
+Vous trouverez plus d'informations [ici](./GIT-WORKFLOW.md) concernant le workflow git.
 
 Le dev se fait sur des branches dédiées à l'issue, les commits directement sur main doivent être evités.
 
