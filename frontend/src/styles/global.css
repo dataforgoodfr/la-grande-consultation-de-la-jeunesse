@@ -69,8 +69,11 @@
   /*
    * Vertical rhythm between text elements.
    * - Only applies between siblings, so there's no space above the first element.
-   * - Only follows text elements, so layout wrappers (divs, flex/grid children) are untouched.
-   * - :where() keeps specificity at 0, so any utility (mt-0, mt-8...) overrides it.
+   * - Text-to-text rules only match text elements, so layout wrappers (divs, flex/grid
+   *   children) are untouched. The exception is the heading rule below, which also spaces
+   *   whatever element follows a heading, wrappers included.
+   * - These rules are in @layer base, so any utility (mt-0, mt-8...) overrides them.
+   * - :where() keeps specificity at 0, so the rules are easy to override within the base layer.
    * - Order matters: later rules win when several match.
    */
   :where(p, ul, ol, blockquote, pre, table) + :where(p, ul, ol, blockquote, pre, table) {
@@ -85,7 +88,10 @@
     margin-top: 1.25em;
   }
 
-  /* Keep content close to the heading it belongs to (also covers heading + heading) */
+  /*
+   * Keep content close to the heading it belongs to (also covers heading + heading).
+   * Applies to any element after a heading, including layout wrappers.
+   */
   :where(h1, h2, h3, h4, h5, h6) + * {
     margin-top: 0.5em;
   }
