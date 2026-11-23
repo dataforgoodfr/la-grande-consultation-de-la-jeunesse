@@ -1,14 +1,30 @@
 ---
-import LogoCMonTour from '../assets/fonts/logoCMonTour.svg'
+import LogoCMonTour from "../assets/fonts/logoCMonTour.svg";
+const links = [
+    { href: "www", text: "Toutes les données" },
+    { href: "www", text: "Je m'engage" },
+    { href: "www", text: "Accessibilité" },
+    { href: "www", text: "Mentions légales" },
+];
 ---
-<footer class="bg-vert-vibrant">
-    <LogoCMonTour />C'est mon tour !
-    Les données étudiantes, rendues accessibles pour éclarer le débat public.
-    Toutes les données
-    <ul>
-        <li><a href="">Toutes les données</a></li>
-        <li><a href="">Je m'engage</a></li>
-        <li><a href="">Accessibilité</a></li>
-        <li><a href="">Mentions légales</a></li>
-    </ul>    
+
+<footer class="bg-vert-vibrant text-beige">
+    <h3>
+        <LogoCMonTour class="inline" />
+        C'est mon tour !
+    </h3>
+    <div class="pl-5">
+        <p>
+            Les données étudiantes, rendues accessibles pour éclarer le débat
+            public.
+        </p>
+        <ul>
+            {links.map((item) => (
+                <li>
+                    <a href={item.href}>{item.text}</a>
+                </li>
+            ))}
+        </ul>
+        <p>CNE 2026 · RESES x Data For Good · Prototype de démonstration</p>
+    </div>
 </footer>
