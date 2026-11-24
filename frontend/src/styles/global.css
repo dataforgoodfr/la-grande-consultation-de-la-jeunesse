@@ -1,1 +1,98 @@
 @import "tailwindcss";
+
+@theme {
+  --color-bleu-pastel: #b2f1ff;
+  --color-bleu-vibrant: #61e2ff;
+
+  --color-vert-pastel: #bef4e5;
+  --color-vert-vibrant: #045740;
+
+  --color-rose-pastel: #f4b4e7;
+  --color-rose-vibrant: #ff68d6;
+
+  --color-orange-pastel: #ffc6b2;
+  --color-orange-vibrant: #ff4709;
+
+  --color-violet-pastel: #c9bef3;
+  --color-violet-vibrant: #6e52df;
+
+  --color-jaune-pastel: #fcf2b0;
+  --color-jaune-vibrant: #fae870;
+
+  --color-beige: #f6f3ee;
+}
+
+/* Font CSS variables are injected by Astro's <Font> component (see astro.config.mjs) */
+@theme inline {
+  --font-sans: var(--font-afacad);
+  --font-display: var(--font-knewave);
+}
+
+@layer base {
+  body {
+    @apply font-sans text-base leading-relaxed antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display font-normal leading-tight text-balance;
+  }
+
+  h1 {
+    @apply text-4xl md:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+
+  h5 {
+    @apply text-lg md:text-xl;
+  }
+
+  h6 {
+    @apply text-base md:text-lg;
+  }
+
+  /*
+   * Vertical rhythm between text elements.
+   * - Only applies between siblings, so there's no space above the first element.
+   * - Text-to-text rules only match text elements, so layout wrappers (divs, flex/grid
+   *   children) are untouched. The exception is the heading rule below, which also spaces
+   *   whatever element follows a heading, wrappers included.
+   * - These rules are in @layer base, so any utility (mt-0, mt-8...) overrides them.
+   * - :where() keeps specificity at 0, so the rules are easy to override within the base layer.
+   * - Order matters: later rules win when several match.
+   */
+  :where(p, ul, ol, blockquote, pre, table) + :where(p, ul, ol, blockquote, pre, table) {
+    margin-top: 1em;
+  }
+
+  :where(p, ul, ol, blockquote, pre, table) + :where(h1, h2) {
+    margin-top: 1.5em;
+  }
+
+  :where(p, ul, ol, blockquote, pre, table) + :where(h3, h4, h5, h6) {
+    margin-top: 1.25em;
+  }
+
+  /*
+   * Keep content close to the heading it belongs to (also covers heading + heading).
+   * Applies to any element after a heading, including layout wrappers.
+   */
+  :where(h1, h2, h3, h4, h5, h6) + * {
+    margin-top: 0.5em;
+  }
+}

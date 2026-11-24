@@ -1,1 +1,27 @@
-// This file is for the general layout of the app, which includes the top bar and the footer.
+---
+// General layout of the app: shared <head>, fonts and global CSS.
+// The top bar and the footer will also live here.
+import { Font } from 'astro:assets';
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+}
+
+const { title = 'RESES' } = Astro.props;
+---
+
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<title>{title}</title>
+		<Font cssVariable="--font-knewave" preload />
+		<Font cssVariable="--font-afacad" preload />
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
