@@ -8,23 +8,24 @@ const links = [
 ];
 ---
 
-<footer class="bg-vert-vibrant text-beige">
+<footer class="bg-vert-vibrant text-beige pr-5 pb-7">
     <h3>
         <LogoCMonTour class="inline" />
         C'est mon tour !
     </h3>
-    <div class="pl-5">
-        <p>
+    <div class="pl-5 text-vert-pastel">
+        <p class="text-xl md:2xl">
             Les données étudiantes, rendues accessibles pour éclarer le débat
             public.
         </p>
-        <ul>
+        <ul class="flex text-beige underline gap-10 text-xl md:2xl">
             {links.map((item) => (
                 <li>
                     <a href={item.href}>{item.text}</a>
                 </li>
             ))}
         </ul>
+        <hr class="mt-5 mb-5 opacity-60"/>
         <p>CNE 2026 · RESES x Data For Good · Prototype de démonstration</p>
     </div>
 </footer>
