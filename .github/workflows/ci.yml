@@ -1,0 +1,78 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [develop, staging, main]
+  pull_request:
+    branches: [develop, staging, main]
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Python
+        uses: astral-sh/setup-uv@v7
+        with:
+          python-version: "3.14"
+
+      - name: Install backend deps & run tests
+        run: |
+          cd backend
+          uv sync --locked
+          uv run pytest
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: "26"
+          cache: "npm"
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Build Astro static site
+        run: |
+          cd frontend
+          npm ci
+          npm run build
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      - name: Build Docker image (dry run)
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: Dockerfile
+          push: false
+          load: false
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+deploy:
+    needs: test-and-build
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+
+    concurrency:
+      group: clever-deploy-${{ github.ref }}
+      cancel-in-progress: false
+
+    environment: >-
+      ${{
+        github.ref == 'refs/heads/main' && 'prod' ||
+        github.ref == 'refs/heads/staging' && 'staging' ||
+        'dev'
+      }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Deploy to Clever Cloud
+        env:
+          CLEVER_TOKEN: ${{ secrets.CLEVER_TOKEN }}
+          CLEVER_SECRET: ${{ secrets.CLEVER_SECRET }}
+          APP_ID: ${{ vars.APP_ID }}
+        run: |
+          npm install -g clever-tools@5.4.0
+          clever link "$APP_ID"
+          clever deploy --same-commit-policy restart

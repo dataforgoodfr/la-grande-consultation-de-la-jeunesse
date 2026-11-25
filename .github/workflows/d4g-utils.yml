@@ -5,7 +5,7 @@ on:
     paths:
       - 'd4g-utils/**' # Trigger the workflow only when changes are made in the d4g-utils directory
     branches:
-      - main
+      - develop
     
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:

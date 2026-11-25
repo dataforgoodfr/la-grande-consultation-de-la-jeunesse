@@ -25,8 +25,11 @@ La priorisation des tickets se fait lors des Weekly ou des discussions textuelle
 
 Vous trouverez plus d'informations [ici](./GIT-WORKFLOW.md) concernant le workflow git.
 
-Le dev se fait sur des branches dédiées à l'issue, les commits directement sur main doivent être evités.
+La branche de développement est la branche develop. L'environnement de dev est aligné sur celle-ci.
+L'environnement de staging est aligné sur staging, et la prod est alignée sur main.
+
+Le dev se fait sur des branches dédiées à l'issue, les commits directement sur develop sont désactivés.
 
 Une fois le dev terminé, vous pouvez ouvrir une ou plusieurs PR et assigner directement des membres du projet en reviewer.
 
-Une fois la PR validée par au moins une personne, vous pourrez la merger sur main.
+Une fois la PR validée par au moins une personne, vous pourrez la merger sur develop.
