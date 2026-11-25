@@ -1,6 +1,12 @@
 ---
 import LogoCMonTour from "../assets/fonts/logoCMonTour.svg";
-const links = [
+
+interface Link {
+    href:string;
+    text:string;
+}
+
+const links: Array<Link> = [
     { href: "www", text: "Toutes les données" },
     { href: "www", text: "Je m'engage" },
     { href: "www", text: "Accessibilité" },
