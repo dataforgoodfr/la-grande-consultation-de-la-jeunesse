@@ -36,10 +36,28 @@ jobs:
           npm ci
           npm run build
 
-  deploy:
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      - name: Build Docker image (dry run)
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: Dockerfile
+          push: false
+          load: false
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+deploy:
     needs: test-and-build
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
+
+    concurrency:
+      group: clever-deploy-${{ github.ref }}
+      cancel-in-progress: false
+
     environment: >-
       ${{
         github.ref == 'refs/heads/main' && 'prod' ||
@@ -55,6 +73,6 @@ jobs:
           CLEVER_SECRET: ${{ secrets.CLEVER_SECRET }}
           APP_ID: ${{ vars.APP_ID }}
         run: |
-          npm install -g clever-tools
+          npm install -g clever-tools@5.4.0
           clever link "$APP_ID"
-          clever deploy
+          clever deploy --same-commit-policy restart

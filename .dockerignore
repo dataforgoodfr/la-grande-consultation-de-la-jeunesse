@@ -1,0 +1,40 @@
+# Contexte de build Docker.
+# But : ne pas envoyer au démon Docker — ni embarquer dans l'image — les
+# dépendances locales, secrets, artefacts de build et données du projet.
+
+# Dépendances et environnements locaux
+**/node_modules
+**/.venv
+**/.tox
+**/__pycache__
+**/*.pyc
+**/*.pyo
+**/*.pyd
+**/.pytest_cache
+**/.ruff_cache
+**/.mypy_cache
+
+# Artefacts de build et caches
+**/dist
+**/.astro
+**/.cache
+**/htmlcov
+**/coverage.xml
+**/.coverage
+
+# Secrets et configuration locale
+**/.env
+**/.env.*
+!**/.env.example
+
+# VCS et fichiers d'éditeurs / OS
+.git
+.github
+.vscode
+**/.vscode
+**/.idea
+**/.DS_Store
+
+# Données et ressources (non nécessaires à l'image)
+/data
+/resources

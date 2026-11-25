@@ -18,7 +18,7 @@ dependencies = [
     { name = "pydantic-settings" },
 ]
 
-[package.optional-dependencies]
+[package.dev-dependencies]
 dev = [
     { name = "pytest" },
     { name = "ruff" },
@@ -30,10 +30,13 @@ requires-dist = [
     { name = "duckdb-engine", specifier = ">=0.15.0" },
     { name = "fastapi", extras = ["standard"], specifier = ">=0.162.4" },
     { name = "pydantic-settings", specifier = ">=2.16.3" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=9.2.0" },
-    { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.2.0" },
 ]
-provides-extras = ["dev"]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "pytest", specifier = ">=9.2.0" },
+    { name = "ruff", specifier = ">=0.2.0" },
+]
 
 [[package]]
 name = "agent-detector"
